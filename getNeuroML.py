@@ -2,7 +2,7 @@ import os
 import sys
 import os.path as op
 import subprocess
-
+import platform
 
 mode = "update"
 switch_to_branch=None
@@ -59,7 +59,7 @@ pre_gh["Git Read-Only"]="git://github.com/"
 
 def execute_command_in_dir(command, directory):
 	sep = " ; "
-	if os.name == 'nt':
+	if platform.system() == 'Windows':
 		directory = directory.replace('/', '\\')
 		sep = " & "
 	print ">>>  Executing: (%s) in dir: %s"%(command, directory)
